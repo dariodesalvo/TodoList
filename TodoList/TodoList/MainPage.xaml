@@ -4,20 +4,46 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TodoList.MainPage">
+             x:Class="TodoList.MainPage"
+             Title="Notitas">
 
     <StackLayout Padding="20">
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="nombre" HorizontalOptions="FillAndExpand" Text="{Binding Nombre}" />
-            <Button Clicked="Button_Clicked" Command="{Binding Agregar}"  Text="Agregar" />
+        <StackLayout Orientation="Vertical">
+            <Label Text="Fecha" />
+            <DatePicker MinimumDate="10/01/2019" MaximumDate="01/01/2025" Date="{Binding Fecha}" />
+            <Label Text="Prioridad" />
+            <Picker SelectedIndex="{Binding Prioridad}"
+        Title="Seleccionar prioridad" >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Baja</x:String>
+                        <x:String>Media</x:String>
+                        <x:String>Alta</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Nota" />
+            
+            <Entry HorizontalOptions="FillAndExpand" Text="{Binding Nombre}" />
+            
+            <Button Command="{Binding Agregar}"  Text="Agregar" />
         </StackLayout>
         <ListView
             ItemsSource="{Binding Tasks }">
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name }" />
+                    <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" />
+                            <CheckBox Color="Blue"  />
+                    </StackLayout>
+                        </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>  
+                
+            </ListView.ItemTemplate>
+
+           
         </ListView>
     </StackLayout>
 

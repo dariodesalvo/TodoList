@@ -8,5 +8,7 @@ namespace TodoList.Model
     {
         public string Name { get; set; }
         public bool Completed { get; set; }
+        public DateTime Fecha { get; set; }
+        public int Prioridad { get; set; }
     }
 }

@@ -13,9 +13,14 @@ namespace TodoList.Model
             tasks = new ObservableCollection<Task>(); 
         }
 
-        public void Add(string nombre)
+        public void Add(string nombre, int prioridad, DateTime fecha)
         {
-            tasks.Add(new Task { Name = nombre });
+            tasks.Add(new Task { Name = nombre, Prioridad=prioridad, Fecha=fecha });
+        }
+
+        public void Remove()
+        {
+         tasks.Clear();    
         }
 
         public ObservableCollection<Task> Tasks

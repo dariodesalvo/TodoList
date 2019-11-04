@@ -19,31 +19,47 @@ namespace TodoList.ViewModels
 
         private void agregarevent()
         {
-            dataStore.Add(nombre);
+            dataStore.Add(nombre,prioridad,fecha);
+        }
+
+        private DateTime fecha;
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
         }
 
         private string nombre;    
         
         public string Nombre 
-        { get { return nombre; };
-          set { nombre = value; }; 
+        { get { return nombre; }
+          set { nombre = value; } 
         }
 
-        private ObservableCollection<Task> tasks;
-
-        private ObservableCollection<Task> Tasks
+        private int prioridad;
+        public int Prioridad
         {
-            get { return dataStore.Tasks; };
+            get { return prioridad; }
+            set { prioridad = value; }
+        }
+
+        // private ObservableCollection<Task> tasks;
+
+        public ObservableCollection<Task> Tasks
+        {
+            get { return dataStore.Tasks; }
             // no lleva set porque solo se lee
         }
 
         private Command agregarCommand;
 
         public Command Agregar { 
-            get { return agregarCommand; }; 
+            get { return agregarCommand; }
             set { agregarCommand = value; }
             
-         ; }
+          }
+
 
     }
 }

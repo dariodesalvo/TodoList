@@ -19,13 +19,7 @@ namespace TodoList
         {
             InitializeComponent();
             BindingContext = new MainPageViewModel();
-        }
-        /*
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            string texto = nombre.Text;
-            dataStore.Add(texto);
 
-        }*/
+        }
     }
 }
