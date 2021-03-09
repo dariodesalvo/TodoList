@@ -1,3 +1,3 @@
 # TodoList
 
-Just ToDoList App in Xamarin Forms
+ToDoList App in Xamarin Forms
